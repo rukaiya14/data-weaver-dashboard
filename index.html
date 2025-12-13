@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Weaver Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Data Weaver Dashboard</h1>
+            <p>Weather & Food Order Analytics</p>
+        </header>
+        
+        <main>
+            <div class="dashboard-grid">
+                <!-- Weather Data Section -->
+                <div class="card">
+                    <h3>Current Weather</h3>
+                    
+                    <!-- City Selection -->
+                    <div class="city-selector">
+                        <input type="text" id="city-input" placeholder="Enter city name..." value="Mumbai">
+                        <button id="update-weather-btn">Update Weather</button>
+                    </div>
+                    
+                    <!-- Current Location Display -->
+                    <div class="weather-location">
+                        <span id="city-name">Loading...</span>
+                    </div>
+                    
+                    <!-- Weather Information -->
+                    <div id="weather-info">
+                        <div class="weather-item">
+                            <span class="label">Temperature:</span>
+                            <span id="temperature">--°C</span>
+                        </div>
+                        <div class="weather-item">
+                            <span class="label">Humidity:</span>
+                            <span id="humidity">--%</span>
+                        </div>
+                        <div class="weather-item">
+                            <span class="label">Conditions:</span>
+                            <span id="conditions">--</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Food Orders Chart -->
+                <div class="card">
+                    <h3>Food Orders Over Time</h3>
+                    <canvas id="ordersChart"></canvas>
+                </div>
+                
+                <!-- Weather Chart -->
+                <div class="card">
+                    <h3>Temperature Trends</h3>
+                    <canvas id="weatherChart"></canvas>
+                </div>
+                
+                <!-- Key Metrics -->
+                <div class="card stats">
+                    <h3>Key Metrics</h3>
+                    <div class="metric">
+                        <span class="metric-value" id="totalOrders">0</span>
+                        <span class="metric-label">Total Orders</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-value" id="avgTemp">0°C</span>
+                        <span class="metric-label">Avg Temperature</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-value" id="predictedOrders">0</span>
+                        <span class="metric-label">Predicted Today</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-value" id="weatherImpact">0%</span>
+                        <span class="metric-label">Weather Impact</span>
+                    </div>
+                </div>
+                
+                <!-- Weather-Order Insights -->
+                <div class="card">
+                    <h3>Weather Impact Analysis</h3>
+                    <div id="insights-container">
+                        <p class="loading-text">Analyzing weather patterns...</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
