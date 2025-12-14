@@ -12,8 +12,8 @@ The Data Weaver Dashboard is an interactive web application that visualizes both
 - **Interactive Charts**: 
   - Line chart showing food orders over time
   - Bar chart displaying temperature trends
-- **Key Metrics**: Total orders and average temperature calculations
-- **Responsive Design**: Mobile-friendly interface that works on all devices
+- **Key Metrics**: Total orders and average temperature
+  **Responsive Design**: Mobile-friendly interface that works on all devices
 - **CSV Data Integration**: Automatic loading and processing of order data
 
 ## Data Sources

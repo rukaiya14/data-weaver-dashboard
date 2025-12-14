@@ -3,68 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Weaver Dashboard</title>
+    <title>Weather & Orders Analytics Dashboard</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="app-container">
-        <!-- Modern Gradient Header -->
+        <!-- Dark Analytics Header -->
         <header class="dashboard-header">
-            <div class="header-content">
-                <h1 class="header-title">Data Weaver Dashboard</h1>
-                <p class="header-subtitle">Intelligent Weather & Food Order Analytics</p>
+            <div class="container">
+                <div class="header-content">
+                    <h1 class="header-title">Weather & Food Orders Analytics</h1>
+                    <p class="header-subtitle">Professional analytics dashboard for weather impact on food delivery demand</p>
+                </div>
             </div>
         </header>
         
         <!-- Main Dashboard Content -->
         <main class="dashboard-main">
             <div class="container">
+                <!-- KPI Cards Section -->
+                <section class="kpi-section">
+                    <div class="kpi-grid">
+                        <div class="kpi-card">
+                            <div class="kpi-icon">📦</div>
+                            <div class="kpi-content">
+                                <div class="kpi-value" id="totalOrders">0</div>
+                                <div class="kpi-label">Total Orders</div>
+                                <div class="kpi-subtitle">Last 30 days</div>
+                            </div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-icon">🌡️</div>
+                            <div class="kpi-content">
+                                <div class="kpi-value" id="avgTemp">0°C</div>
+                                <div class="kpi-label">Avg Temperature</div>
+                                <div class="kpi-subtitle">Weekly average</div>
+                            </div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-icon">🎯</div>
+                            <div class="kpi-content">
+                                <div class="kpi-value" id="predictedOrders">0</div>
+                                <div class="kpi-label">Predicted Today</div>
+                                <div class="kpi-subtitle">AI forecast</div>
+                            </div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-icon">⚡</div>
+                            <div class="kpi-content">
+                                <div class="kpi-value" id="weatherImpact">0%</div>
+                                <div class="kpi-label">Weather Impact</div>
+                                <div class="kpi-subtitle">Demand change</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Main Dashboard Grid -->
                 <div class="dashboard-grid">
                     
-                    <!-- Weather Information Card -->
+                    <!-- Current Weather Card -->
                     <div class="card weather-card">
                         <div class="card-header">
                             <h3 class="card-title">Current Weather</h3>
-                        </div>
-                        <div class="card-content">
-                            <!-- City Selection -->
                             <div class="city-selector">
                                 <input type="text" id="city-input" class="city-input" placeholder="Enter city name..." value="Mumbai">
-                                <button id="update-weather-btn" class="update-btn">
-                                    <span>Update</span>
-                                </button>
+                                <button id="update-weather-btn" class="update-btn">Update</button>
                             </div>
-                            
-                            <!-- Current Location Display -->
+                        </div>
+                        <div class="card-content">
                             <div class="weather-location">
                                 <span id="city-name" class="location-text">Loading...</span>
                             </div>
                             
-                            <!-- Weather Information with Icons -->
-                            <div class="weather-info">
-                                <div class="weather-item">
-                                    <div class="weather-icon">🌡️</div>
-                                    <div class="weather-details">
-                                        <span class="weather-label">Temperature</span>
-                                        <span id="temperature" class="weather-value">--°C</span>
+                            <div class="weather-metrics">
+                                <div class="weather-metric">
+                                    <div class="weather-metric-icon">🌡️</div>
+                                    <div class="weather-metric-content">
+                                        <div class="weather-metric-value" id="temperature">--°C</div>
+                                        <div class="weather-metric-label">Temperature</div>
                                     </div>
                                 </div>
-                                <div class="weather-item">
-                                    <div class="weather-icon">💧</div>
-                                    <div class="weather-details">
-                                        <span class="weather-label">Humidity</span>
-                                        <span id="humidity" class="weather-value">--%</span>
+                                <div class="weather-metric">
+                                    <div class="weather-metric-icon">💧</div>
+                                    <div class="weather-metric-content">
+                                        <div class="weather-metric-value" id="humidity">--%</div>
+                                        <div class="weather-metric-label">Humidity</div>
                                     </div>
                                 </div>
-                                <div class="weather-item">
-                                    <div class="weather-icon">☁️</div>
-                                    <div class="weather-details">
-                                        <span class="weather-label">Conditions</span>
-                                        <span id="conditions" class="weather-value">--</span>
+                                <div class="weather-metric">
+                                    <div class="weather-metric-icon">☁️</div>
+                                    <div class="weather-metric-content">
+                                        <div class="weather-metric-value" id="conditions">--</div>
+                                        <div class="weather-metric-label">Conditions</div>
                                     </div>
                                 </div>
                             </div>
@@ -74,7 +109,7 @@
                     <!-- Food Orders Chart Card -->
                     <div class="card chart-card">
                         <div class="card-header">
-                            <h3 class="card-title">📈 Food Orders Trend Analysis</h3>
+                            <h3 class="card-title">Food Orders Trend</h3>
                             <p class="card-subtitle">Daily order volume patterns and trends</p>
                         </div>
                         <div class="card-content">
@@ -84,10 +119,10 @@
                         </div>
                     </div>
                     
-                    <!-- Weather Trends Chart Card -->
+                    <!-- Temperature Trends Chart Card -->
                     <div class="card chart-card">
                         <div class="card-header">
-                            <h3 class="card-title">🌤️ Temperature Trend Analysis</h3>
+                            <h3 class="card-title">Temperature Trends</h3>
                             <p class="card-subtitle">7-day temperature variations and patterns</p>
                         </div>
                         <div class="card-content">
@@ -97,58 +132,15 @@
                         </div>
                     </div>
                     
-                    <!-- Key Metrics Card -->
-                    <div class="card metrics-card">
+                    <!-- Key Insight Card -->
+                    <div class="card insight-card">
                         <div class="card-header">
-                            <h3 class="card-title">📊 Key Performance Indicators</h3>
-                        </div>
-                        <div class="card-content">
-                            <div class="metrics-grid">
-                                <div class="metric-item orders-metric">
-                                    <div class="metric-icon">🛒</div>
-                                    <div class="metric-content">
-                                        <div class="metric-value" id="totalOrders">0</div>
-                                        <div class="metric-label">Total Orders</div>
-                                        <div class="metric-subtitle">Last 30 days</div>
-                                    </div>
-                                </div>
-                                <div class="metric-item temperature-metric">
-                                    <div class="metric-icon">🌡️</div>
-                                    <div class="metric-content">
-                                        <div class="metric-value" id="avgTemp">0°C</div>
-                                        <div class="metric-label">Avg Temperature</div>
-                                        <div class="metric-subtitle">Weekly average</div>
-                                    </div>
-                                </div>
-                                <div class="metric-item prediction-metric">
-                                    <div class="metric-icon">🔮</div>
-                                    <div class="metric-content">
-                                        <div class="metric-value" id="predictedOrders">0</div>
-                                        <div class="metric-label">Predicted Today</div>
-                                        <div class="metric-subtitle">AI forecast</div>
-                                    </div>
-                                </div>
-                                <div class="metric-item impact-metric">
-                                    <div class="metric-icon">⚡</div>
-                                    <div class="metric-content">
-                                        <div class="metric-value" id="weatherImpact">0%</div>
-                                        <div class="metric-label">Weather Impact</div>
-                                        <div class="metric-subtitle">Demand change</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Key Insight Highlight Box -->
-                    <div class="card highlight-card">
-                        <div class="card-header">
-                            <h3 class="card-title">💡 Key Insight</h3>
+                            <h3 class="card-title">Key Insight</h3>
                         </div>
                         <div class="card-content">
                             <div id="key-insight" class="key-insight">
                                 <div class="insight-highlight">
-                                    <div class="insight-icon">📈</div>
+                                    <div class="insight-icon">📊</div>
                                     <div class="insight-content">
                                         <h4 class="insight-headline">Analyzing weather patterns...</h4>
                                         <p class="insight-description">Weather correlation analysis will appear here once data is loaded.</p>
@@ -159,9 +151,9 @@
                     </div>
                     
                     <!-- Weather Impact Analysis Card -->
-                    <div class="card insights-card">
+                    <div class="card analysis-card">
                         <div class="card-header">
-                            <h3 class="card-title">🌦️ Weather Impact Analysis</h3>
+                            <h3 class="card-title">Weather Impact Analysis</h3>
                             <p class="card-subtitle">How weather conditions influence food delivery demand</p>
                         </div>
                         <div class="card-content">

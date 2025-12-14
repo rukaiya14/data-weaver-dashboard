@@ -539,7 +539,7 @@ class DataWeaverDashboard {
         this.createWeatherChart(chartData.weather);
     }
 
-    // Create food orders chart with enhanced styling
+    // Create food orders chart with dark theme styling
     createOrdersChart(data) {
         const ctx = document.getElementById('ordersChart').getContext('2d');
         this.charts.orders = new Chart(ctx, {
@@ -549,17 +549,17 @@ class DataWeaverDashboard {
                 datasets: [{
                     label: 'Daily Orders',
                     data: data.counts,
-                    borderColor: '#667eea',
-                    backgroundColor: 'rgba(102, 126, 234, 0.1)',
+                    borderColor: '#06b6d4',
+                    backgroundColor: 'rgba(6, 182, 212, 0.2)',
                     borderWidth: 3,
                     fill: true,
                     tension: 0.4,
-                    pointBackgroundColor: '#667eea',
+                    pointBackgroundColor: '#06b6d4',
                     pointBorderColor: '#ffffff',
                     pointBorderWidth: 2,
                     pointRadius: 5,
                     pointHoverRadius: 8,
-                    pointHoverBackgroundColor: '#5a6fd8',
+                    pointHoverBackgroundColor: '#0891b2',
                     pointHoverBorderColor: '#ffffff',
                     pointHoverBorderWidth: 3
                 }]
@@ -568,7 +568,7 @@ class DataWeaverDashboard {
                 responsive: true,
                 maintainAspectRatio: false,
                 animation: {
-                    duration: 1000,
+                    duration: 1200,
                     easing: 'easeInOutQuart'
                 },
                 plugins: {
@@ -577,22 +577,31 @@ class DataWeaverDashboard {
                         position: 'top',
                         labels: {
                             font: {
-                                size: 14,
+                                size: 13,
                                 weight: '600'
                             },
-                            color: '#374151',
+                            color: '#e2e8f0',
                             usePointStyle: true,
-                            pointStyle: 'circle'
+                            pointStyle: 'circle',
+                            padding: 20
                         }
                     },
                     tooltip: {
-                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
-                        titleColor: '#ffffff',
-                        bodyColor: '#ffffff',
-                        borderColor: '#667eea',
-                        borderWidth: 1,
-                        cornerRadius: 8,
-                        displayColors: false
+                        backgroundColor: 'rgba(15, 23, 42, 0.95)',
+                        titleColor: '#06b6d4',
+                        bodyColor: '#e2e8f0',
+                        borderColor: '#06b6d4',
+                        borderWidth: 2,
+                        cornerRadius: 12,
+                        displayColors: false,
+                        titleFont: {
+                            size: 14,
+                            weight: '700'
+                        },
+                        bodyFont: {
+                            size: 13,
+                            weight: '600'
+                        }
                     }
                 },
                 scales: {
@@ -602,13 +611,13 @@ class DataWeaverDashboard {
                             display: true,
                             text: 'Number of Orders',
                             font: {
-                                size: 14,
+                                size: 13,
                                 weight: '600'
                             },
-                            color: '#374151'
+                            color: '#e2e8f0'
                         },
                         grid: {
-                            color: 'rgba(0, 0, 0, 0.05)',
+                            color: 'rgba(148, 163, 184, 0.2)',
                             lineWidth: 1
                         },
                         ticks: {
@@ -616,7 +625,7 @@ class DataWeaverDashboard {
                                 size: 12,
                                 weight: '500'
                             },
-                            color: '#6b7280'
+                            color: '#94a3b8'
                         }
                     },
                     x: {
@@ -624,13 +633,13 @@ class DataWeaverDashboard {
                             display: true,
                             text: 'Date',
                             font: {
-                                size: 14,
+                                size: 13,
                                 weight: '600'
                             },
-                            color: '#374151'
+                            color: '#e2e8f0'
                         },
                         grid: {
-                            color: 'rgba(0, 0, 0, 0.05)',
+                            color: 'rgba(148, 163, 184, 0.2)',
                             lineWidth: 1
                         },
                         ticks: {
@@ -638,7 +647,7 @@ class DataWeaverDashboard {
                                 size: 12,
                                 weight: '500'
                             },
-                            color: '#6b7280'
+                            color: '#94a3b8'
                         }
                     }
                 },
@@ -650,7 +659,7 @@ class DataWeaverDashboard {
         });
     }
 
-    // Create weather chart with enhanced styling
+    // Create weather chart with dark theme styling
     createWeatherChart(data) {
         const ctx = document.getElementById('weatherChart').getContext('2d');
         this.charts.weather = new Chart(ctx, {
@@ -660,13 +669,13 @@ class DataWeaverDashboard {
                 datasets: [{
                     label: 'Temperature (°C)',
                     data: data.temperatures,
-                    backgroundColor: 'rgba(118, 75, 162, 0.8)',
-                    borderColor: '#764ba2',
+                    backgroundColor: 'rgba(139, 92, 246, 0.8)',
+                    borderColor: '#8b5cf6',
                     borderWidth: 2,
                     borderRadius: 8,
                     borderSkipped: false,
-                    hoverBackgroundColor: 'rgba(118, 75, 162, 0.9)',
-                    hoverBorderColor: '#6a4291',
+                    hoverBackgroundColor: 'rgba(139, 92, 246, 0.9)',
+                    hoverBorderColor: '#7c3aed',
                     hoverBorderWidth: 3
                 }]
             },
@@ -674,7 +683,7 @@ class DataWeaverDashboard {
                 responsive: true,
                 maintainAspectRatio: false,
                 animation: {
-                    duration: 1000,
+                    duration: 1200,
                     easing: 'easeInOutQuart'
                 },
                 plugins: {
@@ -683,22 +692,31 @@ class DataWeaverDashboard {
                         position: 'top',
                         labels: {
                             font: {
-                                size: 14,
+                                size: 13,
                                 weight: '600'
                             },
-                            color: '#374151',
+                            color: '#e2e8f0',
                             usePointStyle: true,
-                            pointStyle: 'rect'
+                            pointStyle: 'rect',
+                            padding: 20
                         }
                     },
                     tooltip: {
-                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
-                        titleColor: '#ffffff',
-                        bodyColor: '#ffffff',
-                        borderColor: '#764ba2',
-                        borderWidth: 1,
-                        cornerRadius: 8,
-                        displayColors: false
+                        backgroundColor: 'rgba(15, 23, 42, 0.95)',
+                        titleColor: '#8b5cf6',
+                        bodyColor: '#e2e8f0',
+                        borderColor: '#8b5cf6',
+                        borderWidth: 2,
+                        cornerRadius: 12,
+                        displayColors: false,
+                        titleFont: {
+                            size: 14,
+                            weight: '700'
+                        },
+                        bodyFont: {
+                            size: 13,
+                            weight: '600'
+                        }
                     }
                 },
                 scales: {
@@ -708,13 +726,13 @@ class DataWeaverDashboard {
                             display: true,
                             text: 'Temperature (°C)',
                             font: {
-                                size: 14,
+                                size: 13,
                                 weight: '600'
                             },
-                            color: '#374151'
+                            color: '#e2e8f0'
                         },
                         grid: {
-                            color: 'rgba(0, 0, 0, 0.05)',
+                            color: 'rgba(148, 163, 184, 0.2)',
                             lineWidth: 1
                         },
                         ticks: {
@@ -722,7 +740,7 @@ class DataWeaverDashboard {
                                 size: 12,
                                 weight: '500'
                             },
-                            color: '#6b7280'
+                            color: '#94a3b8'
                         }
                     },
                     x: {
@@ -730,13 +748,13 @@ class DataWeaverDashboard {
                             display: true,
                             text: 'Date',
                             font: {
-                                size: 14,
+                                size: 13,
                                 weight: '600'
                             },
-                            color: '#374151'
+                            color: '#e2e8f0'
                         },
                         grid: {
-                            color: 'rgba(0, 0, 0, 0.05)',
+                            color: 'rgba(148, 163, 184, 0.2)',
                             lineWidth: 1
                         },
                         ticks: {
@@ -744,7 +762,7 @@ class DataWeaverDashboard {
                                 size: 12,
                                 weight: '500'
                             },
-                            color: '#6b7280'
+                            color: '#94a3b8'
                         }
                     }
                 },
@@ -1084,6 +1102,12 @@ class DataWeaverDashboard {
         // Update basic metrics display
         document.getElementById('totalOrders').textContent = totalOrders.toLocaleString();
         document.getElementById('avgTemp').textContent = `${avgTemp}°C`;
+        
+        // Update hero stats
+        const heroTotalOrdersElement = document.getElementById('hero-total-orders');
+        if (heroTotalOrdersElement) {
+            heroTotalOrdersElement.textContent = totalOrders.toLocaleString();
+        }
         
         // Analyze weather-order correlation
         const correlationData = this.analyzeWeatherOrderCorrelation();
